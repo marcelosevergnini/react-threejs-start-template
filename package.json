@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "created": "24-02-2020",
   "private": true,
+  "homepage": "https://marcelosevergnini.github.io/react-threejs-start-template",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-brands-svg-icons": "^5.12.1",
