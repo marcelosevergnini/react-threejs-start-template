@@ -22,7 +22,7 @@ function NavBar() {
                 <div className="navbar-end">
                     <div className="navbar-item">
                         <div className="buttons">
-                            <a rel="noopener noreferrer" className="button" href={"https://github.com/marcelosevergnini/react-three-tests"} target={"_blank"}>
+                            <a rel="noopener noreferrer" className="button" href={"https://github.com/marcelosevergnini"} target={"_blank"}>
                                 <span className="icon">
                                     <FontAwesomeIcon icon={faGithub} />
                                   {/*<i className="fab fa-github"/>*/}
