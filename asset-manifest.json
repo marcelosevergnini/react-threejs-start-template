@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-threejs-start-template/static/css/main.0af865a1.chunk.css",
-    "main.js": "/react-threejs-start-template/static/js/main.c7e231ab.chunk.js",
-    "main.js.map": "/react-threejs-start-template/static/js/main.c7e231ab.chunk.js.map",
+    "main.js": "/react-threejs-start-template/static/js/main.ed9781f1.chunk.js",
+    "main.js.map": "/react-threejs-start-template/static/js/main.ed9781f1.chunk.js.map",
     "runtime-main.js": "/react-threejs-start-template/static/js/runtime-main.dc757676.js",
     "runtime-main.js.map": "/react-threejs-start-template/static/js/runtime-main.dc757676.js.map",
     "static/css/2.70d9d258.chunk.css": "/react-threejs-start-template/static/css/2.70d9d258.chunk.css",
     "static/js/2.672fff12.chunk.js": "/react-threejs-start-template/static/js/2.672fff12.chunk.js",
     "static/js/2.672fff12.chunk.js.map": "/react-threejs-start-template/static/js/2.672fff12.chunk.js.map",
     "index.html": "/react-threejs-start-template/index.html",
-    "precache-manifest.584dfaa670ac90418d6d5d7f4c40a522.js": "/react-threejs-start-template/precache-manifest.584dfaa670ac90418d6d5d7f4c40a522.js",
+    "precache-manifest.22932a15a953b8dfca65c89d39a1854d.js": "/react-threejs-start-template/precache-manifest.22932a15a953b8dfca65c89d39a1854d.js",
     "service-worker.js": "/react-threejs-start-template/service-worker.js",
     "static/css/2.70d9d258.chunk.css.map": "/react-threejs-start-template/static/css/2.70d9d258.chunk.css.map",
     "static/css/main.0af865a1.chunk.css.map": "/react-threejs-start-template/static/css/main.0af865a1.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.70d9d258.chunk.css",
     "static/js/2.672fff12.chunk.js",
     "static/css/main.0af865a1.chunk.css",
-    "static/js/main.c7e231ab.chunk.js"
+    "static/js/main.ed9781f1.chunk.js"
   ]
 }
