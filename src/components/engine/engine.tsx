@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import RunEngine from "../../engine/engine";
+import { testRedux } from "../../store/actions";
 import  "./engine.css";
+import {TEST} from "../../store/actions/types/types";
 
 const style = {
     height: "calc(75vh)"
@@ -68,3 +71,14 @@ export class Engine extends Component<EngineProps> {
         )
     }
 }
+
+const mapDispatchToProps = dispatch => ({
+    test: () => dispatch(TEST)
+});
+
+const withConnect = connect(
+    null,
+    mapDispatchToProps
+);
+
+export default withConnect((Engine));
