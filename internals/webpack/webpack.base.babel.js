@@ -108,8 +108,8 @@ module.exports = options => ({
       {
         test: /\.(ts|tsx)?$/,
         use: 'ts-loader',
-        exclude: /node_modules/
-      }
+        exclude: /node_modules/,
+      },
     ],
   },
   plugins: options.plugins.concat([
@@ -122,7 +122,7 @@ module.exports = options => ({
   ]),
   resolve: {
     modules: ['node_modules', 'app'],
-    extensions: ['.tsx', '.ts', '.js', '.jsx', '.react.js'],
+    extensions: ['.js', '.ts', '.tsx', '.jsx', '.react.js'],
     mainFields: ['browser', 'jsnext:main', 'main'],
   },
   devtool: options.devtool,

@@ -32,7 +32,7 @@ import { changeUsername } from './actions';
 import { makeSelectUsername } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import {Engine} from "../../components/engine";
+import { Engine } from '../../components/Engine/Engine';
 
 const key = 'home';
 
@@ -61,7 +61,11 @@ export function HomePage({
   return (
     <div className="container is-fluid content-spaces ">
       <div className="box box-color">
-        <Engine backgroundColor={0xF2F2F2} lights={[{color: 0xffffff, position: { x: 1, y: 0.75, z: 0.5 }}]} grid={{ size: 100000, dimensions: 500 }}/>
+        <Engine
+          backgroundColor={0xf2f2f2}
+          lights={[{ color: 0xffffff, position: { x: 1, y: 0.75, z: 0.5 } }]}
+          grid={{ size: 100000, dimensions: 500 }}
+        />
       </div>
     </div>
   );
