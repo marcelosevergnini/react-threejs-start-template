@@ -2,7 +2,7 @@ var __wpo = {
   "assets": {
     "main": [
       "/favicon.ico",
-      "/runtime.e4b7857e27e41450d50f.js",
+      "/runtime.8444f6a4bd6aaa5f59d5.js",
       "/"
     ],
     "additional": [
@@ -45,15 +45,15 @@ var __wpo = {
     "8ee62948357bbaec4066068781a7e54e7ef2e22d": "/npm.setimmediate.15d56feae6e28bc4cdab.chunk.js",
     "a62b20e1a35aa84fed622e1301376705802fc9bf": "/npm.three.f9a258a36654a0de48ac.chunk.js",
     "b86b3af8a5c575e376786f7957f774e20d0a3b53": "/npm.three-orbitcontrols.107a8a9c0b28b066dae2.chunk.js",
-    "ce4254f52c4940d958d9be17553d02d53c44271c": "/runtime.e4b7857e27e41450d50f.js",
+    "474b4204a958f960d5058019d9024b4227dff595": "/runtime.8444f6a4bd6aaa5f59d5.js",
     "5238e62b981932c7943932897db388b8d4d8de25": "/16.aea3aff31fc4be5213bb.chunk.js",
     "3b59f63302ba7f6e4c13e36b52319ec4b1a5d6cd": "/17.8cf3e4aeccc335ad2dfd.chunk.js",
     "1dee67f1c16ef55a66548aae426a4a91b5a3ce61": "/18.b7493a252e5054a14a3c.chunk.js",
-    "cfaa5e103e261bf7e524f4333879128a4087f776": "/"
+    "2911604c21f7b7f75572f34646f9e9c614326e01": "/"
   },
   "strategy": "changed",
   "responseStrategy": "cache-first",
-  "version": "3/3/2020, 1:29:28 PM",
+  "version": "3/3/2020, 1:40:22 PM",
   "name": "webpack-offline",
   "pluginVersion": "5.0.6",
   "relativePaths": false
@@ -138,7 +138,7 @@ var __wpo = {
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
