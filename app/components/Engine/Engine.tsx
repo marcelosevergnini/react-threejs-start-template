@@ -1,14 +1,45 @@
 import * as React from 'react';
-import RunEngine from './RunEngine';
+import EngineControl from './EngineControl';
 
 const style = {
-  height: 'calc(75vh)',
+  height: 'calc(77vh)',
 };
 
 interface EngineProps {
-  backgroundColor: number,
-  lights: { color: number; position: { x: number; y: number; z: number } }[];
-  grid: { size: number; dimensions: number };
+    grid: { size: number; dimensions: number, color1: number, color2: number };
+    settings: {
+      lights: { color: number; position: { x: number; y: number; z: number } }[];
+      scene: {
+        backgroundColor: number
+      }
+
+      renderer: {
+        useAntialias: boolean,
+        updateStyle: boolean | false,
+        size: {
+          width: number | 0,
+          height: number | 0
+        }
+      }
+
+      camera: {
+        fov: number,
+        aspect: number,
+        near: number,
+        far: number,
+        position: { x: number; y: number; z: number },
+        lookAt: { x: number; y: number; z: number }
+      }
+
+      controls: {
+        enableDamping: boolean,
+        dampingFactor: number,
+        screeSpacePanning: boolean,
+        minDistance: number,
+        maxDistance: number,
+        maxPolarAngle: number
+      }
+    }
 }
 
 export class Engine extends React.Component<EngineProps, { width: 0, height: 0, mousePos: { x: 0, y: 0 } }> {
@@ -19,35 +50,29 @@ export class Engine extends React.Component<EngineProps, { width: 0, height: 0, 
     containerRef: (HTMLDivElement);
   };
 
-  scene: RunEngine;
+  scene: EngineControl;
 
   mouseDown: boolean = false;
 
   constructor(props: EngineProps) {
     super(props);
     this.containerRef = React.createRef();
-    this.scene = new RunEngine(true, this.props.backgroundColor);
+
+    const { settings } = this.props;
+    this.scene = new EngineControl(settings);
   }
 
   componentDidMount = () => {
 
     this.containerRef.appendChild(this.scene.renderer.domElement);
-    const { lights, grid } = this.props;
+    const { grid } = this.props;
     const { clientWidth, clientHeight } = this.containerRef;
 
     this.setState({ width: clientWidth, height: clientHeight });
 
     this.scene.updateRenderSize(clientWidth, clientHeight, true);
-    this.scene.addLights(lights);
     this.scene.addGrid(grid);
-    this.scene.setControls();
-
-    window.addEventListener('resize', this.resizeCanvas, true);
-    this.scene.renderer.domElement.addEventListener('mousemove', this.onDocumentMouseMove);
-    this.scene.renderer.domElement.addEventListener('mouseover', this.scene.enableControls, true);
-    this.scene.renderer.domElement.addEventListener('mouseout', this.scene.disableControls, true);
-    this.scene.renderer.domElement.addEventListener( 'mousedown', this.addTool, false );
-    this.scene.renderer.domElement.addEventListener( 'mouseup', () => { this.mouseDown = false; }, false );
+    this.registerEngineEvents();
 
     this.animate();
   };
@@ -65,13 +90,10 @@ export class Engine extends React.Component<EngineProps, { width: 0, height: 0, 
   };
 
   onDocumentMouseMove = (event: MouseEvent) => {
-
+    event.preventDefault();
     if (!this.mouseDown) {
       return;
     }
-
-    event.preventDefault();
-
     const mouseX: number = ( ( event.clientX - this.scene.renderer.domElement.offsetLeft ) / this.scene.renderer.domElement.clientWidth ) * 2 - 1;
     const mouseY: number = (- ( ( event.clientY - this.scene.renderer.domElement.offsetTop ) / this.scene.renderer.domElement.clientHeight ) * 2 + 1);
     const mousePosition: any = { x:  mouseX, y:  mouseY };
@@ -85,6 +107,13 @@ export class Engine extends React.Component<EngineProps, { width: 0, height: 0, 
     let positionHeight = - ( ( event.clientY - rect.top ) / ( rect.bottom - rect.top) ) * 2 + 1;
     this.scene.addTool({width: positionWidth, height: positionHeight});
     this.mouseDown = true;
+  };
+
+  private registerEngineEvents = () => {
+    window.addEventListener('resize', this.resizeCanvas, true);
+    this.scene.renderer.domElement.addEventListener('mousemove', this.onDocumentMouseMove);
+    this.scene.renderer.domElement.addEventListener( 'mousedown', this.addTool, false );
+    this.scene.renderer.domElement.addEventListener( 'mouseup', () => { this.mouseDown = false; }, false );
   };
 
   render = () => {
