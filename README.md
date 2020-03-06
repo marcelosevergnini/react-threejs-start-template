@@ -4,7 +4,7 @@
 [Demo](https://marcelosevergnini.github.io/react-threejs-start-template/)
 
 
-####TODO
+#### TODO
 
 * Clean repository 
 * Create script to perform a clean and create a new project on cloning
