@@ -1,5 +1,5 @@
-# React - ThreeJs - Start Template
+# React JS - Three JS - Start Boilerplate template
 
-### Running demonstration
+### WIP "Working" demo
 [Demo](https://marcelosevergnini.github.io/react-threejs-start-template/)
 

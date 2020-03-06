@@ -12,7 +12,6 @@ interface EngineProps {
       scene: {
         backgroundColor: number
       }
-
       renderer: {
         useAntialias: boolean,
         updateStyle: boolean | false,
@@ -21,7 +20,6 @@ interface EngineProps {
           height: number | 0
         }
       }
-
       camera: {
         fov: number,
         aspect: number,
@@ -30,7 +28,6 @@ interface EngineProps {
         position: { x: number; y: number; z: number },
         lookAt: { x: number; y: number; z: number }
       }
-
       controls: {
         enableDamping: boolean,
         dampingFactor: number,
@@ -56,24 +53,17 @@ export class Engine extends React.Component<EngineProps, { width: 0, height: 0, 
 
   constructor(props: EngineProps) {
     super(props);
-    this.containerRef = React.createRef();
-
     const { settings } = this.props;
+    this.containerRef = React.createRef();
     this.scene = new EngineControl(settings);
   }
 
   componentDidMount = () => {
-
     this.containerRef.appendChild(this.scene.renderer.domElement);
-    const { grid } = this.props;
     const { clientWidth, clientHeight } = this.containerRef;
-
     this.setState({ width: clientWidth, height: clientHeight });
-
     this.scene.updateRenderSize(clientWidth, clientHeight, true);
-    this.scene.addGrid(grid);
     this.registerEngineEvents();
-
     this.animate();
   };
 
@@ -100,25 +90,15 @@ export class Engine extends React.Component<EngineProps, { width: 0, height: 0, 
     this.setState( { width: 0, height: 0, mousePos: mousePosition });
   };
 
-  addTool = (event: MouseEvent) => {
-    event.preventDefault();
-    const rect = this.scene.renderer.domElement.getBoundingClientRect();
-    let positionWidth =  ( ( event.clientX - rect.left ) / ( rect.right - rect.left ) ) * 2 - 1;
-    let positionHeight = - ( ( event.clientY - rect.top ) / ( rect.bottom - rect.top) ) * 2 + 1;
-    this.scene.addTool({width: positionWidth, height: positionHeight});
-    this.mouseDown = true;
-  };
-
   private registerEngineEvents = () => {
     window.addEventListener('resize', this.resizeCanvas, true);
     this.scene.renderer.domElement.addEventListener('mousemove', this.onDocumentMouseMove);
-    this.scene.renderer.domElement.addEventListener( 'mousedown', this.addTool, false );
     this.scene.renderer.domElement.addEventListener( 'mouseup', () => { this.mouseDown = false; }, false );
   };
 
   render = () => {
     return (
-      <div className={(this.scene.scroll ? 'scrollEnable' : 'scrollDisable')} style={style} ref={ref => (this.containerRef = ref)} />
+      <div style={style} ref={ref => (this.containerRef = ref)} />
     )
   }
 }
