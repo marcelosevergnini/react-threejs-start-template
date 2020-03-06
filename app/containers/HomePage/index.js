@@ -8,18 +8,23 @@
 import React from 'react';
 import {Engine} from "../../components/Engine/Engine";
 import Header from "../../components/Header";
+import {sceneData} from "../../utils/scene.data";
+import {layoutControl} from "../../utils/scene.data";
 
 export default function HomePage() {
+  const { showHeader } = layoutControl;
+
+  const header = () => {
+    if(showHeader) {
+      return <Header  />;
+    }
+  };
   return (
     <div>
-      <Header />
+      {header()}
       <div className="container is-fluid content-spaces ">
         <div className="box box-color">
-          <Engine
-            backgroundColor={0xf2f2f2}
-            lights={[{ color: 0xffffff, position: { x: 1, y: 0.75, z: 0.5 } }]}
-            grid={{ size: 30000, dimensions: 60 }}
-          />
+          <Engine settings={sceneData.settings} grid={sceneData.grid} />
         </div>
       </div>
     </div>
