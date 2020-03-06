@@ -1,5 +1,9 @@
 # React JS - Three JS - Start Boilerplate template
 
+<img src="/docs/logo.png" alt="react three js boilerplate banner" align="center" />
+
+<br />
+
 ### WIP "Working" demo
 [Demo](https://marcelosevergnini.github.io/react-threejs-start-template/)
 
@@ -19,3 +23,6 @@
 - [ ] Create boilerplate utils ThreeJs functions, like builders for assets such Mesh, Geometry, Materials...
 - [ ] Add Firebase 
 
+<br />
+
+This project is based on the amazing react boilerplate, https://github.com/react-boilerplate/react-boilerplate 
